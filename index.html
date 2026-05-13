@@ -431,9 +431,9 @@
     <p class="scenario-text">A customer walks into the store. You help them as usual. As they leave, your colleague says: <em>"Wow, your Spanish is so good!"</em></p>
     <p class="question-text">What's happening here?</p>
     <div class="options">
-      <div class="option"><span class="option-letter">A</span> A genuine compliment</div>
-      <div class="option"><span class="option-letter">B</span> An assumption about their origin based on how they look</div>
-      <div class="option"><span class="option-letter">C</span> It depends on the context</div>
+      <div class="option" onclick="selectOption(this)"><span class="option-letter">A</span> A genuine compliment</div>
+      <div class="option" onclick="selectOption(this)"><span class="option-letter">B</span> An assumption about their origin based on how they look</div>
+      <div class="option" onclick="selectOption(this)"><span class="option-letter">C</span> It depends on the context</div>
     </div>
     <button class="reveal-btn" onclick="toggleReveal('r1', this)">See answer <span class="arrow">↓</span></button>
     <div class="reveal" id="r1">
@@ -456,9 +456,9 @@
     <p class="scenario-text">A new colleague joins the team. She is from Indonesia, like someone else on the team you have known for years. In her first week, you say: <em>"I'm sure you and your colleague will have loads in common."</em></p>
     <p class="question-text">Is this a problem?</p>
     <div class="options">
-      <div class="option"><span class="option-letter">A</span> No — it's a way of helping her settle in</div>
-      <div class="option"><span class="option-letter">B</span> Yes — you're assuming they share the same personality because they share the same origin</div>
-      <div class="option"><span class="option-letter">C</span> Only if she takes it the wrong way</div>
+      <div class="option" onclick="selectOption(this)"><span class="option-letter">A</span> No — it's a way of helping her settle in</div>
+      <div class="option" onclick="selectOption(this)"><span class="option-letter">B</span> Yes — you're assuming they share the same personality because they share the same origin</div>
+      <div class="option" onclick="selectOption(this)"><span class="option-letter">C</span> Only if she takes it the wrong way</div>
     </div>
     <button class="reveal-btn" onclick="toggleReveal('r2', this)">See answer <span class="arrow">↓</span></button>
     <div class="reveal" id="r2">
@@ -481,9 +481,9 @@
     <p class="scenario-text">A customer who appears to be Asian walks into the store. Your colleague, with good intentions, wants to connect and asks: <em>"Are you from Japan? Or China? Korea maybe?"</em></p>
     <p class="question-text">What would you do?</p>
     <div class="options">
-      <div class="option"><span class="option-letter">A</span> The same — it's a natural way to connect</div>
-      <div class="option"><span class="option-letter">B</span> Wait and let the customer share if they want to</div>
-      <div class="option"><span class="option-letter">C</span> Ask more openly: "Where are you from?"</div>
+      <div class="option" onclick="selectOption(this)"><span class="option-letter">A</span> The same — it's a natural way to connect</div>
+      <div class="option" onclick="selectOption(this)"><span class="option-letter">B</span> Wait and let the customer share if they want to</div>
+      <div class="option" onclick="selectOption(this)"><span class="option-letter">C</span> Ask more openly: "Where are you from?"</div>
     </div>
     <button class="reveal-btn" onclick="toggleReveal('r3', this)">See answer <span class="arrow">↓</span></button>
     <div class="reveal" id="r3">
@@ -510,9 +510,9 @@
     <p class="scenario-text">During the morning meeting, a colleague from India nods as he listens. Someone on the team jokes: <em>"Always nodding! Do you just agree with everything?"</em></p>
     <p class="question-text">Is it just a joke?</p>
     <div class="options">
-      <div class="option"><span class="option-letter">A</span> Yes — there's no bad intention behind it</div>
-      <div class="option"><span class="option-letter">B</span> No — it singles out a cultural gesture as if it were unusual</div>
-      <div class="option"><span class="option-letter">C</span> It depends on how well the team knows each other</div>
+      <div class="option" onclick="selectOption(this)"><span class="option-letter">A</span> Yes — there's no bad intention behind it</div>
+      <div class="option" onclick="selectOption(this)"><span class="option-letter">B</span> No — it singles out a cultural gesture as if it were unusual</div>
+      <div class="option" onclick="selectOption(this)"><span class="option-letter">C</span> It depends on how well the team knows each other</div>
     </div>
     <button class="reveal-btn" onclick="toggleReveal('r4', this)">See answer <span class="arrow">↓</span></button>
     <div class="reveal" id="r4">
@@ -535,9 +535,9 @@
     <p class="scenario-text">A colleague tells you she has lived in Spain for 11 years. You ask: <em>"Yes, but where are you originally from?"</em></p>
     <p class="question-text">What are you unknowingly telling her?</p>
     <div class="options">
-      <div class="option"><span class="option-letter">A</span> That you have genuine curiosity about her story</div>
-      <div class="option"><span class="option-letter">B</span> That you don't see her as someone who belongs here</div>
-      <div class="option"><span class="option-letter">C</span> Both things at the same time</div>
+      <div class="option" onclick="selectOption(this)"><span class="option-letter">A</span> That you have genuine curiosity about her story</div>
+      <div class="option" onclick="selectOption(this)"><span class="option-letter">B</span> That you don't see her as someone who belongs here</div>
+      <div class="option" onclick="selectOption(this)"><span class="option-letter">C</span> Both things at the same time</div>
     </div>
     <button class="reveal-btn" onclick="toggleReveal('r5', this)">See answer <span class="arrow">↓</span></button>
     <div class="reveal" id="r5">
@@ -582,30 +582,27 @@
 <script>
   const correctMap = { r1: 1, r2: 1, r3: 1, r4: 1, r5: 2 };
 
-  // Use event delegation so it works in iframes too
-  document.addEventListener('click', function(e) {
-    const opt = e.target.closest('.option');
-    if (!opt) return;
-    const optionsEl = opt.closest('.options');
-    if (!optionsEl) return;
+  function selectOption(el) {
+    const optionsEl = el.closest('.options');
     if (optionsEl.classList.contains('locked')) return;
-    optionsEl.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
-    opt.classList.add('selected');
-  });
+    optionsEl.querySelectorAll('.option').forEach(function(o) {
+      o.classList.remove('selected');
+    });
+    el.classList.add('selected');
+  }
 
   function toggleReveal(id, btn) {
-    const reveal = document.getElementById(id);
-    const isVisible = reveal.classList.contains('visible');
+    var reveal = document.getElementById(id);
+    var isVisible = reveal.classList.contains('visible');
 
     if (!isVisible) {
-      // Lock options and show correct/wrong
-      const situation = btn.closest('.situation');
-      const optionsEl = situation.querySelector('.options');
-      const opts = optionsEl.querySelectorAll('.option');
-      const correctIdx = correctMap[id];
+      var situation = btn.closest('.situation');
+      var optionsEl = situation.querySelector('.options');
+      var opts = optionsEl.querySelectorAll('.option');
+      var correctIdx = correctMap[id];
 
       optionsEl.classList.add('locked');
-      opts.forEach((o, i) => {
+      opts.forEach(function(o, i) {
         o.classList.remove('selected');
         if (i === correctIdx) {
           o.classList.add('correct');
@@ -616,11 +613,11 @@
     }
 
     reveal.classList.toggle('visible');
-    const showing = reveal.classList.contains('visible');
+    var showing = reveal.classList.contains('visible');
 
     btn.innerHTML = '';
-    const txt = document.createTextNode(showing ? 'Hide ' : 'See answer ');
-    const arrow = document.createElement('span');
+    var txt = document.createTextNode(showing ? 'Hide ' : 'See answer ');
+    var arrow = document.createElement('span');
     arrow.className = 'arrow';
     arrow.textContent = showing ? '↑' : '↓';
     btn.appendChild(txt);
