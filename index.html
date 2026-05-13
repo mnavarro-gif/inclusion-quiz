@@ -6,11 +6,9 @@
 <title>Inclusion is built in small moments — Quiz</title>
 <style>
   @font-face {
-    font-family: 'ABCMonumentGrotesk';
-    src: local('ABC Monument Grotesk'), local('MonumentGrotesk');
-    font-weight: 300;
+    font-family: "ABCMonumentGrotesk";
+    src: local("ABC Monument Grotesk"), local("MonumentGrotesk");
   }
- 
   :root {
     --black: #000000;
     --white: #FFFFFF;
@@ -19,13 +17,10 @@
     --gray-400: #AEAEB2;
     --gray-600: #6E6E73;
     --gray-800: #1D1D1F;
-    --font: 'ABCMonumentGrotesk', -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font: "ABCMonumentGrotesk", -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
- 
   * { margin: 0; padding: 0; box-sizing: border-box; }
- 
   html { font-size: 16px; }
- 
   body {
     background: var(--white);
     color: var(--gray-800);
@@ -33,26 +28,26 @@
     font-weight: 300;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
- 
-  /* ── QUIZ INTRO ─────────────────────────────────────────────────── */
+
+  /* Hide all native inputs */
+  input[type="radio"],
+  input[type="checkbox"] { display: none; }
+
+  /* QUIZ INTRO */
   .quiz-intro {
     max-width: 680px;
     margin: 0 auto;
     padding: 5rem 2rem 3.5rem;
     border-bottom: 1px solid var(--gray-200);
   }
- 
   .quiz-tag {
     font-size: 0.72rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--gray-400);
-    font-weight: 400;
     margin-bottom: 1.6rem;
   }
- 
   .quiz-title {
     font-size: clamp(2rem, 4.5vw, 3.2rem);
     font-weight: 300;
@@ -61,11 +56,7 @@
     color: var(--black);
     margin-bottom: 1.4rem;
   }
- 
-  .quiz-title strong {
-    font-weight: 600;
-  }
- 
+  .quiz-title strong { font-weight: 600; }
   .quiz-description {
     font-size: 1.05rem;
     color: var(--gray-600);
@@ -73,47 +64,34 @@
     line-height: 1.65;
     max-width: 520px;
   }
- 
   .quiz-privacy {
     margin-top: 1.2rem;
     font-size: 0.78rem;
     color: var(--gray-400);
-    font-weight: 400;
-    letter-spacing: 0.01em;
     display: flex;
     align-items: center;
     gap: 0.4rem;
   }
- 
-  .quiz-privacy::before {
-    content: '○';
-    font-size: 0.6rem;
-    color: var(--gray-400);
-  }
+  .quiz-privacy::before { content: "○"; font-size: 0.6rem; }
+
+  /* SITUATIONS */
   .situations {
     max-width: 680px;
     margin: 0 auto;
     padding: 0 2rem 6rem;
   }
- 
   .situation {
     padding: 3.5rem 0;
     border-bottom: 1px solid var(--gray-200);
   }
- 
-  .situation:last-child {
-    border-bottom: none;
-  }
- 
+  .situation:last-child { border-bottom: none; }
   .situation-number {
     font-size: 0.68rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--gray-400);
-    font-weight: 400;
     margin-bottom: 1.4rem;
   }
- 
   .situation-title {
     font-size: 1.45rem;
     font-weight: 600;
@@ -122,20 +100,17 @@
     line-height: 1.25;
     margin-bottom: 1.4rem;
   }
- 
   .scenario-text {
     font-size: 1rem;
     color: var(--gray-600);
     line-height: 1.7;
     margin-bottom: 0.4rem;
   }
- 
   .scenario-text em {
     color: var(--gray-800);
     font-style: normal;
     font-weight: 400;
   }
- 
   .question-text {
     font-size: 1rem;
     color: var(--black);
@@ -143,16 +118,15 @@
     margin: 1.4rem 0 1rem;
     letter-spacing: -0.01em;
   }
- 
-  /* ── OPTIONS ────────────────────────────────────────────────────── */
+
+  /* OPTIONS — label acts as clickable option */
   .options {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
     margin-bottom: 1.6rem;
   }
- 
-  .option {
+  .option-label {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
@@ -167,43 +141,11 @@
     font-weight: 300;
     user-select: none;
   }
- 
-  .option:hover {
+  .option-label:hover {
     background: var(--white);
     border-color: var(--black);
     color: var(--black);
   }
- 
-  .option.selected {
-    background: var(--black);
-    border-color: var(--black);
-    color: var(--white);
-  }
- 
-  .option.selected .option-letter { color: var(--white); }
- 
-  .option.correct {
-    background: var(--white);
-    border-color: var(--black);
-    color: var(--black);
-    font-weight: 400;
-    display: flex;
-    justify-content: space-between;
-  }
- 
-  .option.wrong {
-    background: var(--gray-100);
-    border-color: transparent;
-    color: var(--gray-400);
-  }
- 
-  .option.wrong .option-letter { color: var(--gray-400); }
- 
-  .options.locked .option {
-    cursor: default;
-    pointer-events: none;
-  }
- 
   .option-letter {
     font-weight: 600;
     color: var(--black);
@@ -212,9 +154,19 @@
     letter-spacing: 0.04em;
     margin-top: 0.08rem;
   }
- 
-  /* ── REVEAL BUTTON ──────────────────────────────────────────────── */
-  .reveal-btn {
+
+  /* Selected state when radio is checked */
+  input[type="radio"]:checked + .option-label {
+    background: var(--black);
+    border-color: var(--black);
+    color: var(--white);
+  }
+  input[type="radio"]:checked + .option-label .option-letter {
+    color: var(--white);
+  }
+
+  /* REVEAL BUTTON — label for checkbox */
+  .reveal-toggle-label {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -224,39 +176,37 @@
     font-family: var(--font);
     font-size: 0.85rem;
     font-weight: 400;
-    letter-spacing: 0.01em;
     padding: 0.7rem 1.4rem;
     border-radius: 980px;
     cursor: pointer;
     transition: opacity 0.18s ease;
+    user-select: none;
   }
- 
-  .reveal-btn:hover { opacity: 0.78; }
- 
-  .reveal-btn .arrow {
-    display: inline-block;
-    transition: transform 0.22s ease;
-    font-style: normal;
-  }
- 
-  .reveal-btn.active .arrow {
-    transform: rotate(180deg);
-  }
- 
-  /* ── REVEAL CONTENT ─────────────────────────────────────────────── */
-  .reveal {
+  .reveal-toggle-label:hover { opacity: 0.78; }
+
+  /* REVEAL CONTENT — hidden until checkbox checked */
+  .reveal-content {
     display: none;
     margin-top: 2rem;
+  }
+  input[type="checkbox"]:checked ~ .reveal-content {
+    display: block;
     animation: fadeUp 0.3s ease;
   }
- 
-  .reveal.visible { display: block; }
- 
+
+  /* Change button text when checked — trick using two spans */
+  .reveal-toggle-label .label-show { display: inline; }
+  .reveal-toggle-label .label-hide { display: none; }
+  input[type="checkbox"]:checked ~ .reveal-toggle-label .label-show { display: none; }
+  input[type="checkbox"]:checked ~ .reveal-toggle-label .label-hide { display: inline; }
+
+  /* But label is before checkbox in DOM so we need a different structure */
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
   }
- 
+
   .reveal-answer-tag {
     display: inline-block;
     font-size: 0.72rem;
@@ -269,23 +219,18 @@
     border-radius: 4px;
     margin-bottom: 1.4rem;
   }
- 
   .reveal-body {
     background: var(--gray-100);
     border-radius: 12px;
     padding: 1.8rem 2rem;
   }
- 
   .reveal-body p {
     font-size: 0.95rem;
     color: var(--gray-600);
     line-height: 1.75;
     margin-bottom: 1.2rem;
   }
- 
   .reveal-body p:last-child { margin-bottom: 0; }
- 
-  /* Voice quotes */
   .voice-quote {
     margin: 1.2rem 0;
     padding: 1.1rem 1.3rem;
@@ -293,18 +238,15 @@
     border-radius: 8px;
     border: 1px solid var(--gray-200);
   }
- 
   .voice-name {
     font-size: 0.68rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--gray-400);
     font-weight: 600;
-    font-style: normal;
     display: block;
     margin-bottom: 0.4rem;
   }
- 
   .voice-quote p {
     font-size: 0.93rem;
     color: var(--gray-800);
@@ -313,8 +255,6 @@
     font-weight: 300;
     margin-bottom: 0 !important;
   }
- 
-  /* Store tip */
   .store-tip {
     margin-top: 1.2rem;
     padding-top: 1.2rem;
@@ -323,33 +263,32 @@
     color: var(--gray-600);
     line-height: 1.65;
   }
- 
-  .store-tip strong {
-    color: var(--black);
-    font-weight: 600;
+  .store-tip strong { color: var(--black); font-weight: 600; }
+
+  /* REVEAL WRAPPER — needed for CSS sibling trick */
+  .reveal-wrapper {
+    position: relative;
   }
- 
-  /* ── TAKEAWAY ───────────────────────────────────────────────────── */
+
+  /* Toggle label styling based on checkbox state */
+  .toggle-check:checked ~ .reveal-toggle-label {
+    opacity: 0.7;
+  }
+
+  /* TAKEAWAY */
   .takeaway {
     background: var(--black);
     color: var(--white);
     padding: 5rem 2rem;
   }
- 
-  .takeaway-inner {
-    max-width: 680px;
-    margin: 0 auto;
-  }
- 
+  .takeaway-inner { max-width: 680px; margin: 0 auto; }
   .takeaway-tag {
     font-size: 0.72rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--gray-400);
-    font-weight: 400;
     margin-bottom: 1.6rem;
   }
- 
   .takeaway h2 {
     font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     font-weight: 300;
@@ -358,207 +297,178 @@
     color: var(--white);
     margin-bottom: 2rem;
   }
- 
   .takeaway h2 strong { font-weight: 600; }
- 
   .takeaway-body {
     font-size: 1rem;
     color: #86868B;
     line-height: 1.8;
     margin-bottom: 2rem;
   }
- 
-  .takeaway-quotes {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin: 2.4rem 0;
-  }
- 
+  .takeaway-quotes { display: flex; flex-direction: column; gap: 1rem; margin: 2.4rem 0; }
   .takeaway-quote {
     padding: 1.4rem 1.6rem;
     border: 1px solid #333333;
     border-radius: 12px;
     background: #111111;
   }
- 
-  .takeaway-quote .voice-name {
-    color: var(--gray-400);
-    margin-bottom: 0.5rem;
-  }
- 
+  .takeaway-quote .voice-name { color: var(--gray-400); margin-bottom: 0.5rem; }
   .takeaway-quote p {
     font-size: 1rem;
     color: var(--white);
     font-style: italic;
     font-weight: 300;
     line-height: 1.6;
-    letter-spacing: -0.01em;
   }
- 
-  .takeaway-close {
-    font-size: 1rem;
-    color: #86868B;
-    line-height: 1.8;
-  }
- 
-  /* ── RESPONSIVE ─────────────────────────────────────────────────── */
+  .takeaway-close { font-size: 1rem; color: #86868B; line-height: 1.8; }
+
   @media (max-width: 600px) {
     .quiz-intro { padding: 3.5rem 1.4rem 2.5rem; }
     .situations { padding: 0 1.4rem 4rem; }
     .takeaway { padding: 4rem 1.4rem; }
-    .reveal-body { padding: 1.4rem 1.4rem; }
+    .reveal-body { padding: 1.4rem; }
   }
 </style>
 </head>
 <body>
- 
-<!-- QUIZ INTRO -->
+
 <div class="quiz-intro">
   <p class="quiz-tag">World Cultural Diversity Day · 21 May 2026</p>
   <h1 class="quiz-title"><strong>Would you recognise it?</strong></h1>
   <p class="quiz-description">Five real situations from the store floor. For each one, choose your answer — then find out what's really happening.</p>
   <p class="quiz-privacy">Your answers are not saved or tracked. This is a self-discovery exercise — just for you.</p>
 </div>
- 
-<!-- SITUATIONS -->
+
 <div class="situations">
- 
-  <!-- S1 -->
+
+  <!-- SITUATION 1 -->
   <div class="situation">
     <p class="situation-number">01 of 05</p>
     <h2 class="situation-title">The customer who "speaks so well"</h2>
     <p class="scenario-text">A customer walks into the store. You help them as usual. As they leave, your colleague says: <em>"Wow, your Spanish is so good!"</em></p>
     <p class="question-text">What's happening here?</p>
     <div class="options">
-      <div class="option" onclick="selectOption(this)"><span class="option-letter">A</span> A genuine compliment</div>
-      <div class="option" onclick="selectOption(this)"><span class="option-letter">B</span> An assumption about their origin based on how they look</div>
-      <div class="option" onclick="selectOption(this)"><span class="option-letter">C</span> It depends on the context</div>
+      <input type="radio" name="q1" id="q1a"><label class="option-label" for="q1a"><span class="option-letter">A</span> A genuine compliment</label>
+      <input type="radio" name="q1" id="q1b"><label class="option-label" for="q1b"><span class="option-letter">B</span> An assumption about their origin based on how they look</label>
+      <input type="radio" name="q1" id="q1c"><label class="option-label" for="q1c"><span class="option-letter">C</span> It depends on the context</label>
     </div>
-    <button class="reveal-btn" onclick="toggleReveal('r1', this)">See answer <span class="arrow">↓</span></button>
-    <div class="reveal" id="r1">
-      <div class="reveal-answer-tag">B — and also C</div>
-      <div class="reveal-body">
-        <p>The comment assumes that person shouldn't speak Spanish well, based on how they look. Even if the intention is kind, the underlying message is: "I didn't expect this from someone like you."</p>
-        <div class="voice-quote">
-          <span class="voice-name">Ammar</span>
-          <p>"They look at you and they're like: 'Why are you speaking English in my country?'" — the same logic, in reverse.</p>
+    <div class="reveal-wrapper">
+      <input type="checkbox" class="toggle-check" id="t1">
+      <label class="reveal-toggle-label" for="t1"><span class="label-show">See answer ↓</span><span class="label-hide">Hide ↑</span></label>
+      <div class="reveal-content">
+        <div class="reveal-answer-tag">B — and also C</div>
+        <div class="reveal-body">
+          <p>The comment assumes that person shouldn't speak Spanish well, based on how they look. Even if the intention is kind, the underlying message is: "I didn't expect this from someone like you."</p>
+          <div class="voice-quote"><span class="voice-name">Ammar</span><p>"They look at you and they're like: 'Why are you speaking English in my country?'" — the same logic, in reverse.</p></div>
+          <div class="store-tip"><strong>In the store:</strong> With customers, let them decide how they want to communicate. With colleagues, avoid comments that treat someone's language or accent as surprising. Speaking a language well is not an exception — it's simply who that person is.</div>
         </div>
-        <div class="store-tip"><strong>In the store:</strong> With customers, let them decide how they want to communicate. With colleagues, avoid comments that treat someone's language or accent as surprising. Speaking a language well is not an exception — it's simply who that person is.</div>
       </div>
     </div>
   </div>
- 
-  <!-- S2 -->
+
+  <!-- SITUATION 2 -->
   <div class="situation">
     <p class="situation-number">02 of 05</p>
     <h2 class="situation-title">The new colleague</h2>
     <p class="scenario-text">A new colleague joins the team. She is from Indonesia, like someone else on the team you have known for years. In her first week, you say: <em>"I'm sure you and your colleague will have loads in common."</em></p>
     <p class="question-text">Is this a problem?</p>
     <div class="options">
-      <div class="option" onclick="selectOption(this)"><span class="option-letter">A</span> No — it's a way of helping her settle in</div>
-      <div class="option" onclick="selectOption(this)"><span class="option-letter">B</span> Yes — you're assuming they share the same personality because they share the same origin</div>
-      <div class="option" onclick="selectOption(this)"><span class="option-letter">C</span> Only if she takes it the wrong way</div>
+      <input type="radio" name="q2" id="q2a"><label class="option-label" for="q2a"><span class="option-letter">A</span> No — it's a way of helping her settle in</label>
+      <input type="radio" name="q2" id="q2b"><label class="option-label" for="q2b"><span class="option-letter">B</span> Yes — you're assuming they share the same personality because they share the same origin</label>
+      <input type="radio" name="q2" id="q2c"><label class="option-label" for="q2c"><span class="option-letter">C</span> Only if she takes it the wrong way</label>
     </div>
-    <button class="reveal-btn" onclick="toggleReveal('r2', this)">See answer <span class="arrow">↓</span></button>
-    <div class="reveal" id="r2">
-      <div class="reveal-answer-tag">B</div>
-      <div class="reveal-body">
-        <p>Sharing a nationality does not mean sharing an identity, a working style or a way of relating to others. And Natasha recognises it in herself — no one is immune.</p>
-        <div class="voice-quote">
-          <span class="voice-name">Natasha</span>
-          <p>"I expected her to work the same way. We have the same thoughts. And then I'm like: 'This is different.' I am also a little bit biased."</p>
+    <div class="reveal-wrapper">
+      <input type="checkbox" class="toggle-check" id="t2">
+      <label class="reveal-toggle-label" for="t2"><span class="label-show">See answer ↓</span><span class="label-hide">Hide ↑</span></label>
+      <div class="reveal-content">
+        <div class="reveal-answer-tag">B</div>
+        <div class="reveal-body">
+          <p>Sharing a nationality does not mean sharing an identity, a working style or a way of relating to others. And Natasha recognises it in herself — no one is immune.</p>
+          <div class="voice-quote"><span class="voice-name">Natasha</span><p>"I expected her to work the same way. We have the same thoughts. And then I'm like: 'This is different.' I am also a little bit biased."</p></div>
+          <div class="store-tip"><strong>In the store:</strong> When someone new joins, start from zero. Don't assign them a starting point based on their origin — even a positive one. Let them be the one to tell you who they are.</div>
         </div>
-        <div class="store-tip"><strong>In the store:</strong> When someone new joins, start from zero. Don't assign them a starting point based on their origin — even a positive one. Let them be the one to tell you who they are.</div>
       </div>
     </div>
   </div>
- 
-  <!-- S3 -->
+
+  <!-- SITUATION 3 -->
   <div class="situation">
     <p class="situation-number">03 of 05</p>
     <h2 class="situation-title">The list of countries</h2>
     <p class="scenario-text">A customer who appears to be Asian walks into the store. Your colleague, with good intentions, wants to connect and asks: <em>"Are you from Japan? Or China? Korea maybe?"</em></p>
     <p class="question-text">What would you do?</p>
     <div class="options">
-      <div class="option" onclick="selectOption(this)"><span class="option-letter">A</span> The same — it's a natural way to connect</div>
-      <div class="option" onclick="selectOption(this)"><span class="option-letter">B</span> Wait and let the customer share if they want to</div>
-      <div class="option" onclick="selectOption(this)"><span class="option-letter">C</span> Ask more openly: "Where are you from?"</div>
+      <input type="radio" name="q3" id="q3a"><label class="option-label" for="q3a"><span class="option-letter">A</span> The same — it's a natural way to connect</label>
+      <input type="radio" name="q3" id="q3b"><label class="option-label" for="q3b"><span class="option-letter">B</span> Wait and let the customer share if they want to</label>
+      <input type="radio" name="q3" id="q3c"><label class="option-label" for="q3c"><span class="option-letter">C</span> Ask more openly: "Where are you from?"</label>
     </div>
-    <button class="reveal-btn" onclick="toggleReveal('r3', this)">See answer <span class="arrow">↓</span></button>
-    <div class="reveal" id="r3">
-      <div class="reveal-answer-tag">B</div>
-      <div class="reveal-body">
-        <p>Curiosity is valid. The way it's expressed is what makes the difference.</p>
-        <div class="voice-quote">
-          <span class="voice-name">Natasha</span>
-          <p>"They give me a whole list of countries. Chinese, Korean, Japan? I haven't even had time to answer."</p>
+    <div class="reveal-wrapper">
+      <input type="checkbox" class="toggle-check" id="t3">
+      <label class="reveal-toggle-label" for="t3"><span class="label-show">See answer ↓</span><span class="label-hide">Hide ↑</span></label>
+      <div class="reveal-content">
+        <div class="reveal-answer-tag">B</div>
+        <div class="reveal-body">
+          <p>Curiosity is valid. The way it's expressed is what makes the difference.</p>
+          <div class="voice-quote"><span class="voice-name">Natasha</span><p>"They give me a whole list of countries. Chinese, Korean, Japan? I haven't even had time to answer."</p></div>
+          <div class="voice-quote"><span class="voice-name">Vaia</span><p>"There was a girl that she looked exactly like you." — Assuming two people look alike because of shared physical features is the same mechanism.</p></div>
+          <div class="store-tip"><strong>In the store:</strong> If the conversation reaches that point naturally, an open question is always better than a list. Most importantly — don't assume you can guess someone's origin before they share it. Let them decide what they want to tell you.</div>
         </div>
-        <div class="voice-quote">
-          <span class="voice-name">Vaia</span>
-          <p>"There was a girl that she looked exactly like you." — Assuming two people look alike because of shared physical features is the same mechanism.</p>
-        </div>
-        <div class="store-tip"><strong>In the store:</strong> If the conversation reaches that point naturally, an open question is always better than a list. Most importantly — don't assume you can guess someone's origin before they share it. Let them decide what they want to tell you.</div>
       </div>
     </div>
   </div>
- 
-  <!-- S4 -->
+
+  <!-- SITUATION 4 -->
   <div class="situation">
     <p class="situation-number">04 of 05</p>
     <h2 class="situation-title">The gesture that gets called out</h2>
     <p class="scenario-text">During the morning meeting, a colleague from India nods as he listens. Someone on the team jokes: <em>"Always nodding! Do you just agree with everything?"</em></p>
     <p class="question-text">Is it just a joke?</p>
     <div class="options">
-      <div class="option" onclick="selectOption(this)"><span class="option-letter">A</span> Yes — there's no bad intention behind it</div>
-      <div class="option" onclick="selectOption(this)"><span class="option-letter">B</span> No — it singles out a cultural gesture as if it were unusual</div>
-      <div class="option" onclick="selectOption(this)"><span class="option-letter">C</span> It depends on how well the team knows each other</div>
+      <input type="radio" name="q4" id="q4a"><label class="option-label" for="q4a"><span class="option-letter">A</span> Yes — there's no bad intention behind it</label>
+      <input type="radio" name="q4" id="q4b"><label class="option-label" for="q4b"><span class="option-letter">B</span> No — it singles out a cultural gesture as if it were unusual</label>
+      <input type="radio" name="q4" id="q4c"><label class="option-label" for="q4c"><span class="option-letter">C</span> It depends on how well the team knows each other</label>
     </div>
-    <button class="reveal-btn" onclick="toggleReveal('r4', this)">See answer <span class="arrow">↓</span></button>
-    <div class="reveal" id="r4">
-      <div class="reveal-answer-tag">B</div>
-      <div class="reveal-body">
-        <p>A completely natural gesture in one culture becomes, without anyone meaning it, something that needs to be explained or justified. The gestural norm of the majority becomes the norm for everyone.</p>
-        <div class="voice-quote">
-          <span class="voice-name">Ammar</span>
-          <p>"Why are you nodding your head so much? It might come across as very not-so-nice when you say it."</p>
+    <div class="reveal-wrapper">
+      <input type="checkbox" class="toggle-check" id="t4">
+      <label class="reveal-toggle-label" for="t4"><span class="label-show">See answer ↓</span><span class="label-hide">Hide ↑</span></label>
+      <div class="reveal-content">
+        <div class="reveal-answer-tag">B</div>
+        <div class="reveal-body">
+          <p>A completely natural gesture in one culture becomes, without anyone meaning it, something that needs to be explained or justified. The gestural norm of the majority becomes the norm for everyone.</p>
+          <div class="voice-quote"><span class="voice-name">Ammar</span><p>"Why are you nodding your head so much? It might come across as very not-so-nice when you say it."</p></div>
+          <div class="store-tip"><strong>In the store:</strong> If a colleague's communication style feels unfamiliar, don't call it out in front of the team. If it genuinely affects the work, address it privately and with curiosity — not correction. There are many valid ways to listen, respond and participate.</div>
         </div>
-        <div class="store-tip"><strong>In the store:</strong> If a colleague's communication style feels unfamiliar, don't call it out in front of the team. If it genuinely affects the work, address it privately and with curiosity — not correction. There are many valid ways to listen, respond and participate.</div>
       </div>
     </div>
   </div>
- 
-  <!-- S5 -->
+
+  <!-- SITUATION 5 -->
   <div class="situation">
     <p class="situation-number">05 of 05</p>
     <h2 class="situation-title">"But where are you really from?"</h2>
     <p class="scenario-text">A colleague tells you she has lived in Spain for 11 years. You ask: <em>"Yes, but where are you originally from?"</em></p>
     <p class="question-text">What are you unknowingly telling her?</p>
     <div class="options">
-      <div class="option" onclick="selectOption(this)"><span class="option-letter">A</span> That you have genuine curiosity about her story</div>
-      <div class="option" onclick="selectOption(this)"><span class="option-letter">B</span> That you don't see her as someone who belongs here</div>
-      <div class="option" onclick="selectOption(this)"><span class="option-letter">C</span> Both things at the same time</div>
+      <input type="radio" name="q5" id="q5a"><label class="option-label" for="q5a"><span class="option-letter">A</span> That you have genuine curiosity about her story</label>
+      <input type="radio" name="q5" id="q5b"><label class="option-label" for="q5b"><span class="option-letter">B</span> That you don't see her as someone who belongs here</label>
+      <input type="radio" name="q5" id="q5c"><label class="option-label" for="q5c"><span class="option-letter">C</span> Both things at the same time</label>
     </div>
-    <button class="reveal-btn" onclick="toggleReveal('r5', this)">See answer <span class="arrow">↓</span></button>
-    <div class="reveal" id="r5">
-      <div class="reveal-answer-tag">C — and that is exactly the complexity</div>
-      <div class="reveal-body">
-        <p>The curiosity is real — and it's valid. But the question tells that person their answer wasn't enough. That there is something about them that doesn't fit with who they say they are.</p>
-        <div class="voice-quote">
-          <span class="voice-name">Brenda</span>
-          <p>"Having been on the other side, I know what it feels like. When I meet anyone, I don't judge. I ask."</p>
+    <div class="reveal-wrapper">
+      <input type="checkbox" class="toggle-check" id="t5">
+      <label class="reveal-toggle-label" for="t5"><span class="label-show">See answer ↓</span><span class="label-hide">Hide ↑</span></label>
+      <div class="reveal-content">
+        <div class="reveal-answer-tag">C — and that is exactly the complexity</div>
+        <div class="reveal-body">
+          <p>The curiosity is real — and it's valid. But the question tells that person their answer wasn't enough. That there is something about them that doesn't fit with who they say they are.</p>
+          <div class="voice-quote"><span class="voice-name">Brenda</span><p>"Having been on the other side, I know what it feels like. When I meet anyone, I don't judge. I ask."</p></div>
+          <div class="voice-quote"><span class="voice-name">Brenda</span><p>"I go back to my country and it's like: 'You're not really from here anymore. We don't feel you're one of us.'"</p></div>
+          <div class="store-tip"><strong>In the store:</strong> When someone tells you where they are from, that is their answer. If they want to share more of their story over time, they will. It's not your question that opens that door — it's the trust you build together every day.</div>
         </div>
-        <div class="voice-quote">
-          <span class="voice-name">Brenda</span>
-          <p>"I go back to my country and it's like: 'You're not really from here anymore. We don't feel you're one of us.'"</p>
-        </div>
-        <div class="store-tip"><strong>In the store:</strong> When someone tells you where they are from, that is their answer. If they want to share more of their story over time, they will. It's not your question that opens that door — it's the trust you build together every day.</div>
       </div>
     </div>
   </div>
- 
+
 </div>
- 
+
 <!-- TAKEAWAY -->
 <section class="takeaway">
   <div class="takeaway-inner">
@@ -578,53 +488,6 @@
     <p class="takeaway-close">It's asking before assuming. It's letting the person in front of you tell you who they are, instead of deciding before they speak. It's recognising that our teams and our customers deserve that space — every day, not just today.</p>
   </div>
 </section>
- 
-<script>
-  const correctMap = { r1: 1, r2: 1, r3: 1, r4: 1, r5: 2 };
- 
-  function selectOption(el) {
-    const optionsEl = el.closest('.options');
-    if (optionsEl.classList.contains('locked')) return;
-    optionsEl.querySelectorAll('.option').forEach(function(o) {
-      o.classList.remove('selected');
-    });
-    el.classList.add('selected');
-  }
- 
-  function toggleReveal(id, btn) {
-    var reveal = document.getElementById(id);
-    var isVisible = reveal.classList.contains('visible');
- 
-    if (!isVisible) {
-      var situation = btn.closest('.situation');
-      var optionsEl = situation.querySelector('.options');
-      var opts = optionsEl.querySelectorAll('.option');
-      var correctIdx = correctMap[id];
- 
-      optionsEl.classList.add('locked');
-      opts.forEach(function(o, i) {
-        o.classList.remove('selected');
-        if (i === correctIdx) {
-          o.classList.add('correct');
-        } else {
-          o.classList.add('wrong');
-        }
-      });
-    }
- 
-    reveal.classList.toggle('visible');
-    var showing = reveal.classList.contains('visible');
- 
-    btn.innerHTML = '';
-    var txt = document.createTextNode(showing ? 'Hide ' : 'See answer ');
-    var arrow = document.createElement('span');
-    arrow.className = 'arrow';
-    arrow.textContent = showing ? '↑' : '↓';
-    btn.appendChild(txt);
-    btn.appendChild(arrow);
-    btn.classList.toggle('active', showing);
-  }
-</script>
- 
+
 </body>
 </html>
