@@ -10,7 +10,7 @@
     src: local('ABC Monument Grotesk'), local('MonumentGrotesk');
     font-weight: 300;
   }
-
+ 
   :root {
     --black: #000000;
     --white: #FFFFFF;
@@ -21,11 +21,11 @@
     --gray-800: #1D1D1F;
     --font: 'ABCMonumentGrotesk', -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
-
+ 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
   html { font-size: 16px; }
-
+ 
   body {
     background: var(--white);
     color: var(--gray-800);
@@ -35,7 +35,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
+ 
   /* ── QUIZ INTRO ─────────────────────────────────────────────────── */
   .quiz-intro {
     max-width: 680px;
@@ -43,7 +43,7 @@
     padding: 5rem 2rem 3.5rem;
     border-bottom: 1px solid var(--gray-200);
   }
-
+ 
   .quiz-tag {
     font-size: 0.72rem;
     letter-spacing: 0.12em;
@@ -52,7 +52,7 @@
     font-weight: 400;
     margin-bottom: 1.6rem;
   }
-
+ 
   .quiz-title {
     font-size: clamp(2rem, 4.5vw, 3.2rem);
     font-weight: 300;
@@ -61,11 +61,11 @@
     color: var(--black);
     margin-bottom: 1.4rem;
   }
-
+ 
   .quiz-title strong {
     font-weight: 600;
   }
-
+ 
   .quiz-description {
     font-size: 1.05rem;
     color: var(--gray-600);
@@ -73,7 +73,7 @@
     line-height: 1.65;
     max-width: 520px;
   }
-
+ 
   .quiz-privacy {
     margin-top: 1.2rem;
     font-size: 0.78rem;
@@ -84,7 +84,7 @@
     align-items: center;
     gap: 0.4rem;
   }
-
+ 
   .quiz-privacy::before {
     content: '○';
     font-size: 0.6rem;
@@ -95,16 +95,16 @@
     margin: 0 auto;
     padding: 0 2rem 6rem;
   }
-
+ 
   .situation {
     padding: 3.5rem 0;
     border-bottom: 1px solid var(--gray-200);
   }
-
+ 
   .situation:last-child {
     border-bottom: none;
   }
-
+ 
   .situation-number {
     font-size: 0.68rem;
     letter-spacing: 0.14em;
@@ -113,7 +113,7 @@
     font-weight: 400;
     margin-bottom: 1.4rem;
   }
-
+ 
   .situation-title {
     font-size: 1.45rem;
     font-weight: 600;
@@ -122,20 +122,20 @@
     line-height: 1.25;
     margin-bottom: 1.4rem;
   }
-
+ 
   .scenario-text {
     font-size: 1rem;
     color: var(--gray-600);
     line-height: 1.7;
     margin-bottom: 0.4rem;
   }
-
+ 
   .scenario-text em {
     color: var(--gray-800);
     font-style: normal;
     font-weight: 400;
   }
-
+ 
   .question-text {
     font-size: 1rem;
     color: var(--black);
@@ -143,7 +143,7 @@
     margin: 1.4rem 0 1rem;
     letter-spacing: -0.01em;
   }
-
+ 
   /* ── OPTIONS ────────────────────────────────────────────────────── */
   .options {
     display: flex;
@@ -151,7 +151,7 @@
     gap: 0.4rem;
     margin-bottom: 1.6rem;
   }
-
+ 
   .option {
     display: flex;
     align-items: flex-start;
@@ -167,21 +167,21 @@
     font-weight: 300;
     user-select: none;
   }
-
+ 
   .option:hover {
     background: var(--white);
     border-color: var(--black);
     color: var(--black);
   }
-
+ 
   .option.selected {
     background: var(--black);
     border-color: var(--black);
     color: var(--white);
   }
-
+ 
   .option.selected .option-letter { color: var(--white); }
-
+ 
   .option.correct {
     background: var(--white);
     border-color: var(--black);
@@ -190,20 +190,20 @@
     display: flex;
     justify-content: space-between;
   }
-
+ 
   .option.wrong {
     background: var(--gray-100);
     border-color: transparent;
     color: var(--gray-400);
   }
-
+ 
   .option.wrong .option-letter { color: var(--gray-400); }
-
+ 
   .options.locked .option {
     cursor: default;
     pointer-events: none;
   }
-
+ 
   .option-letter {
     font-weight: 600;
     color: var(--black);
@@ -212,7 +212,7 @@
     letter-spacing: 0.04em;
     margin-top: 0.08rem;
   }
-
+ 
   /* ── REVEAL BUTTON ──────────────────────────────────────────────── */
   .reveal-btn {
     display: inline-flex;
@@ -230,33 +230,33 @@
     cursor: pointer;
     transition: opacity 0.18s ease;
   }
-
+ 
   .reveal-btn:hover { opacity: 0.78; }
-
+ 
   .reveal-btn .arrow {
     display: inline-block;
     transition: transform 0.22s ease;
     font-style: normal;
   }
-
+ 
   .reveal-btn.active .arrow {
     transform: rotate(180deg);
   }
-
+ 
   /* ── REVEAL CONTENT ─────────────────────────────────────────────── */
   .reveal {
     display: none;
     margin-top: 2rem;
     animation: fadeUp 0.3s ease;
   }
-
+ 
   .reveal.visible { display: block; }
-
+ 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
+ 
   .reveal-answer-tag {
     display: inline-block;
     font-size: 0.72rem;
@@ -269,22 +269,22 @@
     border-radius: 4px;
     margin-bottom: 1.4rem;
   }
-
+ 
   .reveal-body {
     background: var(--gray-100);
     border-radius: 12px;
     padding: 1.8rem 2rem;
   }
-
+ 
   .reveal-body p {
     font-size: 0.95rem;
     color: var(--gray-600);
     line-height: 1.75;
     margin-bottom: 1.2rem;
   }
-
+ 
   .reveal-body p:last-child { margin-bottom: 0; }
-
+ 
   /* Voice quotes */
   .voice-quote {
     margin: 1.2rem 0;
@@ -293,7 +293,7 @@
     border-radius: 8px;
     border: 1px solid var(--gray-200);
   }
-
+ 
   .voice-name {
     font-size: 0.68rem;
     letter-spacing: 0.12em;
@@ -304,7 +304,7 @@
     display: block;
     margin-bottom: 0.4rem;
   }
-
+ 
   .voice-quote p {
     font-size: 0.93rem;
     color: var(--gray-800);
@@ -313,7 +313,7 @@
     font-weight: 300;
     margin-bottom: 0 !important;
   }
-
+ 
   /* Store tip */
   .store-tip {
     margin-top: 1.2rem;
@@ -323,24 +323,24 @@
     color: var(--gray-600);
     line-height: 1.65;
   }
-
+ 
   .store-tip strong {
     color: var(--black);
     font-weight: 600;
   }
-
+ 
   /* ── TAKEAWAY ───────────────────────────────────────────────────── */
   .takeaway {
     background: var(--black);
     color: var(--white);
     padding: 5rem 2rem;
   }
-
+ 
   .takeaway-inner {
     max-width: 680px;
     margin: 0 auto;
   }
-
+ 
   .takeaway-tag {
     font-size: 0.72rem;
     letter-spacing: 0.12em;
@@ -349,7 +349,7 @@
     font-weight: 400;
     margin-bottom: 1.6rem;
   }
-
+ 
   .takeaway h2 {
     font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     font-weight: 300;
@@ -358,35 +358,35 @@
     color: var(--white);
     margin-bottom: 2rem;
   }
-
+ 
   .takeaway h2 strong { font-weight: 600; }
-
+ 
   .takeaway-body {
     font-size: 1rem;
     color: #86868B;
     line-height: 1.8;
     margin-bottom: 2rem;
   }
-
+ 
   .takeaway-quotes {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     margin: 2.4rem 0;
   }
-
+ 
   .takeaway-quote {
     padding: 1.4rem 1.6rem;
     border: 1px solid #333333;
     border-radius: 12px;
     background: #111111;
   }
-
+ 
   .takeaway-quote .voice-name {
     color: var(--gray-400);
     margin-bottom: 0.5rem;
   }
-
+ 
   .takeaway-quote p {
     font-size: 1rem;
     color: var(--white);
@@ -395,13 +395,13 @@
     line-height: 1.6;
     letter-spacing: -0.01em;
   }
-
+ 
   .takeaway-close {
     font-size: 1rem;
     color: #86868B;
     line-height: 1.8;
   }
-
+ 
   /* ── RESPONSIVE ─────────────────────────────────────────────────── */
   @media (max-width: 600px) {
     .quiz-intro { padding: 3.5rem 1.4rem 2.5rem; }
@@ -412,7 +412,7 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- QUIZ INTRO -->
 <div class="quiz-intro">
   <p class="quiz-tag">World Cultural Diversity Day · 21 May 2026</p>
@@ -420,10 +420,10 @@
   <p class="quiz-description">Five real situations from the store floor. For each one, choose your answer — then find out what's really happening.</p>
   <p class="quiz-privacy">Your answers are not saved or tracked. This is a self-discovery exercise — just for you.</p>
 </div>
-
+ 
 <!-- SITUATIONS -->
 <div class="situations">
-
+ 
   <!-- S1 -->
   <div class="situation">
     <p class="situation-number">01 of 05</p>
@@ -448,7 +448,7 @@
       </div>
     </div>
   </div>
-
+ 
   <!-- S2 -->
   <div class="situation">
     <p class="situation-number">02 of 05</p>
@@ -473,7 +473,7 @@
       </div>
     </div>
   </div>
-
+ 
   <!-- S3 -->
   <div class="situation">
     <p class="situation-number">03 of 05</p>
@@ -502,7 +502,7 @@
       </div>
     </div>
   </div>
-
+ 
   <!-- S4 -->
   <div class="situation">
     <p class="situation-number">04 of 05</p>
@@ -527,7 +527,7 @@
       </div>
     </div>
   </div>
-
+ 
   <!-- S5 -->
   <div class="situation">
     <p class="situation-number">05 of 05</p>
@@ -556,9 +556,9 @@
       </div>
     </div>
   </div>
-
+ 
 </div>
-
+ 
 <!-- TAKEAWAY -->
 <section class="takeaway">
   <div class="takeaway-inner">
@@ -578,10 +578,10 @@
     <p class="takeaway-close">It's asking before assuming. It's letting the person in front of you tell you who they are, instead of deciding before they speak. It's recognising that our teams and our customers deserve that space — every day, not just today.</p>
   </div>
 </section>
-
+ 
 <script>
   const correctMap = { r1: 1, r2: 1, r3: 1, r4: 1, r5: 2 };
-
+ 
   function selectOption(el) {
     const optionsEl = el.closest('.options');
     if (optionsEl.classList.contains('locked')) return;
@@ -590,17 +590,17 @@
     });
     el.classList.add('selected');
   }
-
+ 
   function toggleReveal(id, btn) {
     var reveal = document.getElementById(id);
     var isVisible = reveal.classList.contains('visible');
-
+ 
     if (!isVisible) {
       var situation = btn.closest('.situation');
       var optionsEl = situation.querySelector('.options');
       var opts = optionsEl.querySelectorAll('.option');
       var correctIdx = correctMap[id];
-
+ 
       optionsEl.classList.add('locked');
       opts.forEach(function(o, i) {
         o.classList.remove('selected');
@@ -611,10 +611,10 @@
         }
       });
     }
-
+ 
     reveal.classList.toggle('visible');
     var showing = reveal.classList.contains('visible');
-
+ 
     btn.innerHTML = '';
     var txt = document.createTextNode(showing ? 'Hide ' : 'See answer ');
     var arrow = document.createElement('span');
@@ -625,6 +625,6 @@
     btn.classList.toggle('active', showing);
   }
 </script>
-
+ 
 </body>
 </html>
